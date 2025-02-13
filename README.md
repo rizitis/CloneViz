@@ -20,8 +20,8 @@ Displays the clone statistics of my (yours) GitHub repositories. Repositories ar
 
 ### Output
 
-You have now 2 outputs.<br>
+You now have 2 outputs.<br>
 1. clone_stats.json<br>
-2. and the plot graph<br>
+2. the plot graph<br>
 
 Use it as you like ;) 
