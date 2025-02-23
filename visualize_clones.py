@@ -15,7 +15,7 @@ max_name_length = 40
 repo_names = [name if len(name) <= max_name_length else name[:max_name_length] + "..." for name in repo_names]
 
 # Limit the number of repositories shown (optional)
-top_n = 20  # Adjust this number based on how many repos you want to display
+top_n = 10  # Adjust this number based on how many repos you want to display
 clone_data_sorted = sorted(clone_data, key=lambda x: x['clones'], reverse=True)[:top_n]
 
 repo_names = [data['repo'] for data in clone_data_sorted]
