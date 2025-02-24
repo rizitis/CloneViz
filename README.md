@@ -2,7 +2,7 @@
 Displays the clone statistics of my (yours) GitHub repositories. Repositories are also visualized in a graph
 ---
 
-![plot](./Figure1.png)
+![plot](./Figure_1.png)
 
 ---
 
