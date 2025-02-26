@@ -9,7 +9,7 @@ Displays the clone statistics of my (yours) GitHub repositories. Repositories ar
 ### Prepare
 
 - clone this repo `https://github.com/rizitis/CloneViz.git`
-- `pip install requests matplotlib`
+- `pip install requests matplotlib seaborn pillow`
 - create a hidden file `.token.txt` and write in your personal github token
 - edit `fetch_clone_data.py` and replace my github user name `rizitis` with yours. 
 

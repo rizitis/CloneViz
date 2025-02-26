@@ -12,6 +12,9 @@ with open('.token.txt', 'r') as token_file:
 repos_url = f'https://api.github.com/users/{username}/repos?per_page=100&page=1'
 headers = {'Authorization': f'token {token}'}
 
+# GitHub API endpoint to get user info
+user_url = f'https://api.github.com/users/{username}'
+
 # Prepare a list to store clone stats
 clone_data = []
 
@@ -32,6 +35,23 @@ def get_all_repos(url):
             break
     return repos
 
+# Fetch user info (like avatar, username)
+def get_user_info():
+    response = requests.get(user_url, headers=headers)
+    if response.status_code == 200:
+        user_info = response.json()
+        return {
+            'username': user_info['login'],
+            'avatar_url': user_info['avatar_url'],
+            'html_url': user_info['html_url']
+        }
+    else:
+        print(f"Error fetching user info: {response.status_code}")
+        return None
+
+# Get the user information
+user_info = get_user_info()
+
 # Get the list of all repositories
 repos = get_all_repos(repos_url)
 
@@ -48,7 +68,8 @@ for repo in repos:
         clone_data.append({
             'repo': repo_name,
             'clones': clone_count,
-            'unique_cloners': unique_cloners
+            'unique_cloners': unique_cloners,
+            'user': user_info  # Adding user info to the repo data
         })
 
 # Sort the repositories by the number of clones in descending order
