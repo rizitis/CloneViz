@@ -20,7 +20,9 @@ user_avatar = Image.open(BytesIO(response.content))
 
 # Limit to top N repositories
 top_n = 8 # Chnage this to the repo number you want to appears in plot.
-clone_data_sorted = sorted(clone_data, key=lambda x: x['clones'], reverse=True)[:top_n]
+#clone_data_sorted = sorted(clone_data, key=lambda x: x['clones'], reverse=True)[:top_n]
+clone_data_sorted = sorted(clone_data, key=lambda x: x['unique_cloners'], reverse=True)[:top_n]
+
 
 # Extract data for the repositories
 repo_names = [data['repo'] for data in clone_data_sorted]
